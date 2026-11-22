@@ -81,4 +81,28 @@ program
     console.log(`Random number: ${result}`);
   });
 
+program
+  .command("date")
+  .description("Display the current date and time")
+  .action(() => {
+    const now = new Date();
+
+    const currentDate = now.toLocaleDateString("en-IN", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+
+    const currentTime = now.toLocaleTimeString("en-IN", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
+    });
+
+    console.log(`Current Date: ${currentDate}`);
+    console.log(`Current Time: ${currentTime}`);
+  });
+
 program.parse(process.argv);
