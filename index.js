@@ -105,4 +105,35 @@ program
     console.log(`Current Time: ${currentTime}`);
   });
 
+program
+  .command("joke")
+  .description("Fetch a random programming joke")
+  .action(async () => {
+    try {
+      const response = await fetch(
+        "https://v2.jokeapi.dev/joke/Programming?safe-mode"
+      );
+
+      if (!response.ok) {
+        throw new Error(`API request failed: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (data.error) {
+        throw new Error("The API returned an error.");
+      }
+
+      if (data.type === "single") {
+        console.log(data.joke);
+      } else {
+        console.log(data.setup);
+        console.log(data.delivery);
+      }
+    } catch (error) {
+      console.error("Error fetching joke:", error.message);
+      process.exitCode = 1;
+    }
+  });
+
 program.parse(process.argv);
