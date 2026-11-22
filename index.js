@@ -57,4 +57,28 @@ program
     console.log(`Result: ${result}`);
   });
 
+program
+  .command("random <min> <max>")
+  .description("Generate a random whole number within a range")
+  .action((min, max) => {
+    min = Number(min);
+    max = Number(max);
+
+    if (!Number.isInteger(min) || !Number.isInteger(max)) {
+      console.error("Error: Please provide valid whole numbers.");
+      process.exitCode = 1;
+      return;
+    }
+
+    if (min > max) {
+      console.error("Error: Minimum cannot be greater than maximum.");
+      process.exitCode = 1;
+      return;
+    }
+
+    const result = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    console.log(`Random number: ${result}`);
+  });
+
 program.parse(process.argv);
