@@ -1,7 +1,7 @@
 {
-  "name": "npm-submission-project",
+  "name": "@v1sh999/npm-submission-project-m3",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple CLI utility package built with Node.js and Commander",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +12,10 @@
   "type": "commonjs",
   "dependencies": {
     "commander": "^15.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/v1sh999/npm-submission-project.git"
+  },
+  "homepage": "https://github.com/v1sh999/npm-submission-project#readme"
 }
