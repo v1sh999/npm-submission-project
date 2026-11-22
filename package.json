@@ -17,5 +17,8 @@
     "type": "git",
     "url": "https://github.com/v1sh999/npm-submission-project.git"
   },
-  "homepage": "https://github.com/v1sh999/npm-submission-project#readme"
+  "homepage": "https://github.com/v1sh999/npm-submission-project#readme",
+  "bin": {
+    "npm-toolbox": "./index.js"
+  }
 }
